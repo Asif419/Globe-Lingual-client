@@ -1,11 +1,11 @@
 import useAuth from "../hooks/useAuth";
 
 const Main = () => {
-  const { user } = useAuth();
+  const { user, darkTheme, setDarkTheme } = useAuth();
   return (
     <div>
       <h2>Main</h2>
-      <button className="btn btn-primary">Button {user?.name}</button>
+      <button onClick={() => setDarkTheme(!darkTheme)} className="btn btn-primary">Button {user?.name}</button>
     </div>
   );
 };
