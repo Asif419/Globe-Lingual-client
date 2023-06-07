@@ -1,9 +1,11 @@
 import useAuth from "../hooks/useAuth";
 import Container from '../pages/Shared/Container';
 
+
 const Main = () => {
   const { user, darkTheme, setDarkTheme, googleSingIn } = useAuth();
 
+  // remove after this
   const handleGoogleSignIn = () => {
     googleSingIn()
       .then(result => {
@@ -12,6 +14,7 @@ const Main = () => {
         console.log(error);
       })
   }
+
 
   // TODO: AXIOS and react query install
   return (
