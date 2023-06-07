@@ -23,16 +23,17 @@ const Main = () => {
     <>
       <Header></Header>
       <Container>
-        <div className="pt-[70px]">
-          <Outlet></Outlet>
-        </div>
+        <div className="min-h-[340px]">
+          <div className="pt-[70px]">
+            <Outlet></Outlet>
+          </div>
 
-        <div>
-          <h2>Main</h2>
-          <button onClick={() => setDarkTheme(!darkTheme)} className="btn btn-primary">Button {user?.name}</button>
-          <button onClick={handleGoogleSignIn} className="btn btn-primary">Google</button>
+          <div>
+            <h2>Main</h2>
+            <button onClick={() => setDarkTheme(!darkTheme)} className="btn btn-primary">Button {user?.name}</button>
+            <button onClick={handleGoogleSignIn} className="btn btn-primary">Google</button>
+          </div>
         </div>
-
       </Container>
       <Footer></Footer>
     </>
