@@ -1,5 +1,7 @@
 import useAuth from "../hooks/useAuth";
 import Container from '../pages/Shared/Container';
+import Footer from "../pages/Shared/Footer/Footer";
+import Header from "../pages/Shared/Header/Header";
 
 
 const Main = () => {
@@ -16,14 +18,17 @@ const Main = () => {
   }
 
 
-  // TODO: AXIOS and react query install
   return (
     <Container>
+      <Header></Header>
+
       <div>
         <h2>Main</h2>
         <button onClick={() => setDarkTheme(!darkTheme)} className="btn btn-primary">Button {user?.name}</button>
         <button onClick={handleGoogleSignIn} className="btn btn-primary">Google</button>
       </div>
+
+      <Footer></Footer>
     </Container>
   );
 };

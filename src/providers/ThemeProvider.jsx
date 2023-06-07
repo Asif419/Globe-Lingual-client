@@ -4,9 +4,9 @@ const ThemeProvider = ({ children }) => {
   const { darkTheme } = useAuth();
 
   return (
-    <div className={`${darkTheme ? 'dark-theme' : 'light-theme'}`}>
+    <div data-theme={darkTheme ? 'dark' : 'light'}>
       {children}
-    </div >
+    </div>
   );
 };
 
