@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .dark-theme {
-  background-color: #333333;
+  background-color: #1f1e1e00;
   color: #ffffff;
 }
 
