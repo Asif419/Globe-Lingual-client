@@ -40,15 +40,23 @@ const Header = () => {
       >CLASSES</NavLink>
     </li>
     {
-      user &&
-      <li>
-        <NavLink
-          to='/dashboard'
-          className={({ isActive }) =>
-            isActive ? "text-blue-600 font-extrabold border-b-4 border-blue-600" : ""
-          }
-        >DASHBOARD</NavLink>
-      </li>
+      user ?
+        <li>
+          <NavLink
+            to='/dashboard'
+            className={({ isActive }) =>
+              isActive ? "text-blue-600 font-extrabold border-b-4 border-blue-600" : ""
+            }
+          >DASHBOARD</NavLink>
+        </li> :
+        <li>
+          <NavLink
+            to='/login'
+            className={({ isActive }) =>
+              isActive ? "text-blue-600 font-extrabold border-b-4 border-blue-600" : ""
+            }
+          >LOGIN</NavLink>
+        </li>
     }
   </>
 
