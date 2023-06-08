@@ -14,12 +14,12 @@ const image_upload_token = import.meta.env.VITE_IMAGE_UPLOAD_TOKEN;
 const notify = (message) => toast(`${message}`);
 
 const Registration = () => {
-  const { darkTheme, googleSingIn, createUser, updateUserProfile } = useAuth();
+  const { darkTheme, googleSingIn, createUser, updateUserProfile, logOut } = useAuth();
   const [baseAxios] = useAxios();
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const [visibleOne, setVisibleOne] = useState(false);
   const [visibleTwo, setVisibleTwo] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState(null);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from || '/';
@@ -53,9 +53,14 @@ const Registration = () => {
               updateUserProfile(name, user_photo_url)
                 .then(() => {
                   const user = { user_name: name, user_email: email, user_photo_url, role: 'student' };
+                  console.log(user);
+                  reset();
                   baseAxios.post('/users', user)
-                    .then(res => {
-                      console.log(res.data);
+                    .then(() => {
+                      notify('User created successfully ✌️');
+                      logOut();
+                      setErrorMessage(null);
+                      navigate('/login', { state: { from: location.state } }, { replace: true });
                     })
                     .catch(error => {
                       setErrorMessage(error.message);
@@ -68,8 +73,6 @@ const Registration = () => {
             .catch(error => {
               setErrorMessage(error.message);
             })
-
-          // console.log(user);
         }
       })
       .catch(error => {
@@ -79,7 +82,7 @@ const Registration = () => {
 
 
   const handleGoogleSignIn = () => {
-    setErrorMessage('');
+    setErrorMessage(null);
     // firebase sign in
     googleSingIn()
       .then(result => {
@@ -93,8 +96,9 @@ const Registration = () => {
               navigate(from, { replace: true });
             }
           })
-          .catch(error => {
-            setErrorMessage(error.response.data.message);
+          .catch(() => {
+            notify('User created successfully ✌️');
+            navigate(from, { replace: true });
           })
       }).catch(error => {
         console.log(error);
@@ -202,7 +206,7 @@ const Registration = () => {
                 </div>
               )
             }
-            <button onClick={() => setErrorMessage('')} className="btn-gl" type="submit">Submit</button>
+            <button onClick={() => setErrorMessage(null)} className="btn-gl" type="submit">Submit</button>
           </form>
           <div className="divider">OR</div>
           <div className="flex flex-col items-center">

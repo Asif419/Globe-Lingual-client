@@ -26,6 +26,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         </QueryClientProvider>
       </ThemeProvider>
     </AuthProviders>
-    <Toaster />
+    <Toaster
+      position="bottom-center"
+    />
   </React.StrictMode>,
 )

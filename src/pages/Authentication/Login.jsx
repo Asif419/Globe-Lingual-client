@@ -6,28 +6,53 @@ import { useEffect, useState } from "react";
 import Lottie from "lottie-react";
 import loginAnimation from '../../assets/animation/login.json'
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import useAxios from "../../hooks/useAxios";
+import { toast } from "react-hot-toast";
 
 const Login = () => {
-  const { darkTheme, googleSingIn } = useAuth();
+  const { darkTheme, googleSingIn, signIn } = useAuth();
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [visible, setVisible] = useState(false);
-  const [errorMessage, setErroMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState(null);
   const location = useLocation();
-  const from = location.state?.from?.pathname || '/';
   const navigate = useNavigate();
+  const from = location.state?.from?.pathname || '/';
+  const [baseAxios] = useAxios();
+  const notify = (message) => toast(`${message}`);
 
   const handleGoogleSignIn = () => {
+    setErrorMessage(null);
     googleSingIn()
       .then(result => {
-        console.log(result.user);
-        navigate(from, { replace: true });
+        const LoggedUser = result.user;
+        const user = { user_name: LoggedUser.displayName, user_email: LoggedUser.email, user_photo_url: LoggedUser.photoURL, role: 'student' };
+        baseAxios.post('/users', user)
+          .then(res => {
+            if (res.data.acknowledged) {
+              notify('Logged in successfully ✌️');
+              navigate(from, { replace: true });
+            }
+          })
+          .catch(error => {
+            notify('Logged in successfully ✌️');
+            navigate(from, { replace: true });
+            console.log(error.response.data.message);
+          })
       }).catch(error => {
         console.log(error);
       })
   }
 
   const onSubmit = data => {
-    console.log(data)
+    const { email, password } = data;
+    signIn(email, password)
+      .then(() => {
+        notify('Logged in successfully ✌️');
+        navigate(from, { replace: true });
+      })
+      .catch(error => {
+        setErrorMessage(error.message);
+      })
   }
 
   useEffect(() => {
