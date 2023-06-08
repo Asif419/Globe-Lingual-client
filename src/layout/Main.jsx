@@ -5,7 +5,6 @@ import Header from "../pages/Shared/Header/Header";
 import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 
-
 const Main = () => {
 
   useEffect(() => {

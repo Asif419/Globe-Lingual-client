@@ -7,15 +7,18 @@ const PrivateRoute = ({ children }) => {
   const location = useLocation();
 
   if (loading) {
-    console.log(1);
-    <Dna
-      visible={true}
-      height="80"
-      width="80"
-      ariaLabel="dna-loading"
-      wrapperStyle={{}}
-      wrapperClass="dna-wrapper"
-    />
+    return <>
+      <div className="flex items-center justify-center">
+        <Dna
+          visible={true}
+          height="100vh"
+          width="100"
+          ariaLabel="dna-loading"
+          wrapperStyle={{}}
+          wrapperClass="dna-wrapper"
+        />
+      </div>
+    </>
   }
 
   if (user) {
