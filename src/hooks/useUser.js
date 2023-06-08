@@ -7,10 +7,10 @@ const useUser = () => {
   const [axiosSecure] = useAxiosSecure();
 
   const { data: userFromDB, isLoading: isUserFromDBLoading } = useQuery({
-    queryKey: ['users', user?.email],
+    queryKey: ['user', user?.email],
     enabled: !loading,
     queryFn: async () => {
-      const res = await axiosSecure.get(`/users/${user?.email}`);
+      const res = await axiosSecure.get(`/user/${user?.email}`);
       return res.data;
     }
   })

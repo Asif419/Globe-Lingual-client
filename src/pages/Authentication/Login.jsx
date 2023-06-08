@@ -26,7 +26,7 @@ const Login = () => {
       .then(result => {
         const LoggedUser = result.user;
         const user = { user_name: LoggedUser.displayName, user_email: LoggedUser.email, user_photo_url: LoggedUser.photoURL, role: 'student' };
-        baseAxios.post('/users', user)
+        baseAxios.post('/user', user)
           .then(res => {
             if (res.data.acknowledged) {
               notify('Logged in successfully ✌️');

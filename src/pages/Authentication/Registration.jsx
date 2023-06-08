@@ -55,7 +55,7 @@ const Registration = () => {
                   const user = { user_name: name, user_email: email, user_photo_url, role: 'student' };
                   console.log(user);
                   reset();
-                  baseAxios.post('/users', user)
+                  baseAxios.post('/user', user)
                     .then(() => {
                       notify('User created successfully ✌️');
                       logOut();
@@ -89,7 +89,7 @@ const Registration = () => {
         const LoggedUser = result.user;
         const user = { user_name: LoggedUser.displayName, user_email: LoggedUser.email, user_photo_url: LoggedUser.photoURL, role: 'student' };
         // user add in database
-        baseAxios.post('/users', user)
+        baseAxios.post('/user', user)
           .then(res => {
             if (res.data.acknowledged) {
               notify('User created successfully ✌️');
