@@ -10,7 +10,7 @@ import Registration from "../pages/Authentication/Registration";
 import Error from "../pages/Shared/Error/Error";
 import AdminInstructors from "../pages/Dashboard/Admin/AdminInstructors";
 import AdminClasses from "../pages/Dashboard/Admin/AdminClasses";
-import AdminStudents from "../pages/Dashboard/Admin/AdminStudents";
+// import AdminStudents from "../pages/Dashboard/Admin/AdminStudents";
 import AddClass from "../pages/Dashboard/Instructor/AddClass";
 import InstructorClasses from "../pages/Dashboard/Instructor/InstructorClasses";
 import EnrolledClasses from "../pages/Dashboard/Student/EnrolledClasses";
@@ -62,10 +62,11 @@ const router = createBrowserRouter([
         path: 'admin-classes',
         element: <AdminRoute><AdminClasses /></AdminRoute>,
       },
-      {
-        path: 'admin-students',
-        element: <AdminRoute><AdminStudents /></AdminRoute>,
-      },
+      // {
+      //   path: 'admin-students',
+      //   element: <AdminRoute><AdminStudents /></AdminRoute>,
+      // },
+      
       //instructor
       {
         path: 'add-class',
