@@ -16,6 +16,9 @@ import InstructorClasses from "../pages/Dashboard/Instructor/InstructorClasses";
 import EnrolledClasses from "../pages/Dashboard/Student/EnrolledClasses";
 import SelectedClasses from "../pages/Dashboard/Student/SelectedClasses";
 import PaymentHistory from "../pages/Dashboard/Student/PaymentHistory";
+import AdminRoute from "./AdminRoute";
+import InstructorRoute from "./InstructorRoute";
+import StudentRoute from "./StudentRoute";
 
 const router = createBrowserRouter([
   {
@@ -53,37 +56,37 @@ const router = createBrowserRouter([
       //admin
       {
         path: 'admin-instructors',
-        element: <AdminInstructors />,
+        element: <AdminRoute><AdminInstructors /></AdminRoute>,
       },
       {
         path: 'admin-classes',
-        element: <AdminClasses />,
+        element: <AdminRoute><AdminClasses /></AdminRoute>,
       },
       {
         path: 'admin-students',
-        element: <AdminStudents />,
+        element: <AdminRoute><AdminStudents /></AdminRoute>,
       },
       //instructor
       {
         path: 'add-class',
-        element: <AddClass />,
+        element: <InstructorRoute><AddClass /></InstructorRoute>,
       },
       {
         path: 'instructor-classes',
-        element: <InstructorClasses />,
+        element: <InstructorRoute><InstructorClasses /></InstructorRoute>,
       },
       //student
       {
         path: 'enrolled-classes',
-        element: <EnrolledClasses />,
+        element: <StudentRoute><EnrolledClasses /></StudentRoute>,
       },
       {
         path: 'selected-classes',
-        element: <SelectedClasses />,
+        element: <StudentRoute><SelectedClasses /></StudentRoute>,
       },
       {
         path: 'payment-history',
-        element: <PaymentHistory />,
+        element: <StudentRoute><PaymentHistory /></StudentRoute>,
       },
     ]
   },

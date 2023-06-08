@@ -8,7 +8,7 @@ const Dashboard = () => {
       <div className="min-h-[100vh]">
         <div className="fixed drawer lg:drawer-open">
           <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-          <div className="drawer-content flex flex-col items-center justify-center">
+          <div className="drawer-content flex flex-col items-center justify-center lg:block">
             {/* Page content here */}
             <label htmlFor="my-drawer-2" className="btn btn-ghost border-2 border-x-blue-600 flex drawer-button lg:hidden">Open Menu</label>
             <Outlet></Outlet>
