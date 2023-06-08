@@ -66,7 +66,7 @@ const router = createBrowserRouter([
       //   path: 'admin-students',
       //   element: <AdminRoute><AdminStudents /></AdminRoute>,
       // },
-      
+
       //instructor
       {
         path: 'add-class',

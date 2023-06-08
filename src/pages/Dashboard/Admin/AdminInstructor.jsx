@@ -1,6 +1,6 @@
 
-const AdminInstructor = ({ index, user }) => {
-  const { user_name, user_email, role, user_photo_url } = user;
+const AdminInstructor = ({ index, user, handleChangeRole }) => {
+  const { _id, user_name, user_email, role, user_photo_url } = user;
   console.log(user);
   return (
     <tr>
@@ -11,7 +11,6 @@ const AdminInstructor = ({ index, user }) => {
         <div className="flex items-center space-x-3">
           <div>
             <div className="font-bold">{user_name}</div>
-            <div className="text-sm opacity-50">United States</div>
           </div>
         </div>
       </td>
@@ -27,9 +26,9 @@ const AdminInstructor = ({ index, user }) => {
         <br />
         <span className="badge badge-ghost badge-sm">{role === 'admin' ? 'Admin' : role === 'instructor' ? 'Instructor' : 'Student'}</span>
       </td>
-      <td className="text-center">
-        <button className="btn btn-ghost btn-xs">Make Admin</button>
-        <button className="btn btn-ghost btn-xs">Make Instructor</button>
+      <td className="flex flex-col gap-2 items-center justify-center text-center">
+        <button onClick={() => handleChangeRole(_id, 'admin')} disabled={role === 'admin'} className="btn btn-xs">Make Admin</button>
+        <button onClick={() => handleChangeRole(_id, 'instructor')} disabled={role === 'instructor'} className="btn btn-xs">Make Instructor</button>
       </td>
     </tr>
   );
