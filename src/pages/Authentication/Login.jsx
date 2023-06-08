@@ -2,20 +2,25 @@ import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
 import { AiFillEyeInvisible, AiFillEye, AiFillGoogleCircle } from 'react-icons/ai';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Lottie from "lottie-react";
 import loginAnimation from '../../assets/animation/login.json'
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { darkTheme, googleSingIn } = useAuth();
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [visible, setVisible] = useState(false);
+  const [errorMessage, setErroMessage] = useState('');
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
+  const navigate = useNavigate();
 
   const handleGoogleSignIn = () => {
     googleSingIn()
       .then(result => {
-        console.log(result.user)
+        console.log(result.user);
+        navigate(from, { replace: true });
       }).catch(error => {
         console.log(error);
       })
@@ -25,17 +30,23 @@ const Login = () => {
     console.log(data)
   }
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <Helmet>
         <title>GlobeLingual | Login</title>
       </Helmet>
 
+      <div className="text-center text-4xl font-extrabold my-10 md:my-3">
+        <p>Login</p>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-2 justify-center items-center">
         {/* left side */}
         <div className={`w-full p-4 md:p-8 lg:p-10 mx-auto rounded-2xl ${darkTheme ? 'bg-slate-800' : 'bg-slate-200'}`}>
           <form className="flex flex-col gap-5" onSubmit={handleSubmit(onSubmit)}>
-            {/* register your input into the hook by invoking the "register" function */}
             <div className="px-2 md:px-20 flex-col w-full items-center">
               <p className="label-text">Email*</p>
               <input type="email" className="w-full p-3 rounded-lg" placeholder="asif@gmail.com" {...register("email", { required: true })} />
@@ -54,6 +65,20 @@ const Login = () => {
               </div>
               {errors.password && <p className="text-sm text-red-700">This field is required</p>}
             </div>
+            {
+              errorMessage && (
+                <div className='border border-red-400 text-center rounded-lg w-2/3 mx-auto text text-red-600 m-2 '>
+                  {
+                    (!errorMessage) ? '' :
+                      errorMessage === 'Firebase: Error (auth/wrong-password).' ?
+                        <p>Wrong password. Please try again.</p> :
+                        errorMessage === 'Firebase: Error (auth/user-not-found).' ?
+                          <p>User not found. Please check your email and try again.</p> :
+                          <p>An error occurred. Please try again later.</p>
+                  }
+                </div>
+              )
+            }
             <button className="btn-gl" type="submit">Submit</button>
           </form>
           <div className="divider">OR</div>
