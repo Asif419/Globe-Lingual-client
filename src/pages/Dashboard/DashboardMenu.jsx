@@ -9,31 +9,80 @@ import useUser from "../../hooks/useUser";
 
 const DashboardMenu = () => {
   const [userFromDB] = useUser();
-  const role = userFromDB.role;
-  console.log(userFromDB.role);
+  const role = userFromDB?.role;
   return (
     <>
       {
         role === 'admin' ?
           <>
-            <li><NavLink to='/dashboard/admin-home'>Admin Home<img className="w-8 h-8" src={home} alt="gl" /></NavLink></li>
-            <li><NavLink to='/dashboard/admin-instructors'>Instructors<img className="w-8 h-8" src={instructors} alt="gl" /></NavLink></li>
-            <li><NavLink to='/dashboard/admin-classes'>Manage Classes<img className="w-8 h-8" src={classes} alt="gl" /></NavLink></li>
-            <li><NavLink to='/dashboard/admin-students'>Manage Students<img className="w-8 h-8" src={students} alt="gl" /></NavLink></li>
+            <li><NavLink
+              to='/dashboard/admin-home'
+              className={({ isActive }) =>
+                isActive ? "text-black-600 font-extrabold border-r-4 border-blue-600" : ""
+              }>
+              Admin Home<img className="w-8 h-8" src={home} alt="gl" /></NavLink></li>
+            <li><NavLink
+              to='/dashboard/admin-instructors'
+              className={({ isActive }) =>
+                isActive ? "text-blue-600 font-extrabold border-r-4 border-blue-600" : ""
+              }>
+              Instructors<img className="w-8 h-8" src={instructors} alt="gl" /></NavLink></li>
+            <li><NavLink
+              to='/dashboard/admin-classes'
+              className={({ isActive }) =>
+                isActive ? "text-blue-600 font-extrabold border-r-4 border-blue-600" : ""
+              }>
+              Manage Classes<img className="w-8 h-8" src={classes} alt="gl" /></NavLink></li>
+            <li><NavLink
+              to='/dashboard/admin-students'
+              className={({ isActive }) =>
+                isActive ? "text-blue-600 font-extrabold border-r-4 border-blue-600" : ""
+              }>
+              Manage Students<img className="w-8 h-8" src={students} alt="gl" /></NavLink></li>
           </>
           :
           role === 'instructor' ?
             <>
               <li><NavLink to='/dashboard/instructor-home'>Instructor Home<img className="w-8 h-8" src={home} alt="gl" /></NavLink></li>
-              <li><NavLink to='/dashboard/add-class'>Add a Class<img className="w-8 h-8" src={add} alt="gl" /></NavLink></li>
-              <li><NavLink to='/dashboard/instructor-classes'>My Classes<img className="w-8 h-8" src={classes} alt="gl" /></NavLink></li>
+              <li><NavLink
+                to='/dashboard/add-class'
+                className={({ isActive }) =>
+                  isActive ? "text-blue-600 font-extrabold border-r-4 border-blue-600" : ""
+                }>
+                Add a Class<img className="w-8 h-8" src={add} alt="gl" /></NavLink></li>
+              <li><NavLink
+                to='/dashboard/instructor-classes'
+                className={({ isActive }) =>
+                  isActive ? "text-blue-600 font-extrabold border-r-4 border-blue-600" : ""
+                }>
+                My Classes<img className="w-8 h-8" src={classes} alt="gl" /></NavLink></li>
             </>
             :
             <>
-              <li><NavLink to='/dashboard/student-home'>Student Home<img className="w-8 h-8" src={home} alt="gl" /></NavLink></li>
-              <li><NavLink to='/dashboard/enrolled-classes'>Enrolled Classes<img className="w-8 h-8" src={instructors} alt="gl" /></NavLink></li>
-              <li><NavLink to='/dashboard/selected-classes'>Selected Classes<img className="w-8 h-8" src={classes} alt="gl" /></NavLink></li>
-              <li><NavLink to='/dashboard/payment-history'>Payment History<img className="w-8 h-8" src={enrolled} alt="gl" /></NavLink></li>
+              <li><NavLink
+                to='/dashboard/student-home'
+                className={({ isActive }) =>
+                  isActive ? "text-blue-600 font-extrabold border-r-4 border-blue-600" : ""
+                }>
+                Student Home<img className="w-8 h-8" src={home} alt="gl" /></NavLink></li>
+              <li><NavLink
+                to='/dashboard/enrolled-classes'
+                className={({ isActive }) =>
+                  isActive ? "text-blue-600 font-extrabold border-r-4 border-blue-600" : ""
+                }>
+                Enrolled Classes<img className="w-8 h-8" src={instructors} alt="gl" /></NavLink></li>
+              <li><NavLink
+                to='/dashboard/selected-classes'
+                className={({ isActive }) =>
+                  isActive ? "text-blue-600 font-extrabold border-r-4 border-blue-600" : ""
+                }>
+                Selected Classes<img className="w-8 h-8" src={classes} alt="gl" /></NavLink></li>
+              <li><NavLink
+                to='/dashboard/payment-history'
+                className={({ isActive }) =>
+                  isActive ? "text-blue-600 font-extrabold border-r-4 border-blue-600" : ""
+                }>
+                Payment History<img className="w-8 h-8" src={enrolled} alt="gl" /></NavLink></li>
             </>
       }
     </>
