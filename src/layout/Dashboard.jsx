@@ -1,9 +1,6 @@
 import { NavLink, Outlet } from "react-router-dom";
 import logo from '../../public/logo.png';
-import home from '../../src/assets/icon/house.png';
-import instructors from '../../src/assets/icon/instructor.png';
-import classes from '../../src/assets/icon/classes.png';
-import students from '../../src/assets/icon/students.png';
+import DashboardMenu from "../pages/Dashboard/DashboardMenu";
 
 const Dashboard = () => {
   return (
@@ -21,11 +18,8 @@ const Dashboard = () => {
             <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
             <ul className="max-w-[230px] text-base font-semibold flex justify-center items-end menu p-4 w-80 h-full bg-base-200 text-base-content">
               {/* Sidebar content here */}
-              <li><NavLink to='/dashboard/home'>Home<img className="w-8 h-8" src={home} alt="gl" /></NavLink></li>
-              <li><NavLink to='/dashboard/instructors'>Instructors<img className="w-8 h-8" src={instructors} alt="gl" /></NavLink></li>
-              <li><NavLink to='/dashboard/classes'>Classes<img className="w-8 h-8" src={classes} alt="gl" /></NavLink></li>
-              <li><NavLink to='/dashboard/students'>Students<img className="w-8 h-8" src={students} alt="gl" /></NavLink></li>
 
+              <DashboardMenu></DashboardMenu>
 
               <div className="divider"></div>
 

@@ -2,24 +2,11 @@ import { Link, NavLink } from "react-router-dom";
 import logo from '../../../../public/logo.png';
 import useAuth from "../../../hooks/useAuth";
 import { BiSun, BiMoon } from 'react-icons/bi';
-import useAxios from "../../../hooks/useAxios";
-import { useQuery } from "@tanstack/react-query";
+import useUser from "../../../hooks/useUser";
 
 const Header = () => {
-  const { user, loading, logOut, darkTheme, setDarkTheme } = useAuth();
-  const [baseAxios] = useAxios();
-
-
-
-  const { data: userDB } = useQuery({
-    queryKey: ['users', user?.email],
-    enabled: !loading,
-    queryFn: async () => {
-      const res = await baseAxios.get(`/users/${user?.email}`);
-      return res.data;
-    }
-  })
-  console.log(userDB);
+  const { user, logOut, darkTheme, setDarkTheme } = useAuth();
+  const [userFromDB] = useUser();  
 
   const handleLogOut = () => {
     logOut()
@@ -103,13 +90,13 @@ const Header = () => {
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
-                  <img src={userDB?.user_photo_url} alt={userDB?.user_name} />
+                  <img src={userFromDB?.user_photo_url} alt={userFromDB?.user_name} />
                 </div>
               </label>
               <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                 <li>
                   <a className="justify-between">
-                    {userDB?.user_name}
+                    {userFromDB?.user_name}
                     <span className="badge">New</span>
                   </a>
                 </li>
