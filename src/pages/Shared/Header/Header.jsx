@@ -5,7 +5,6 @@ import { BiSun, BiMoon } from 'react-icons/bi';
 
 const Header = () => {
   const { user, logOut, darkTheme, setDarkTheme } = useAuth();
-  console.log(user);
 
   const handleLogOut = () => {
     logOut()
@@ -69,7 +68,7 @@ const Header = () => {
           <Link to='/'>
             <div className="flex justify-center items-center gap-2">
               <img className="h-14 w-14" src={logo} alt="logo" />
-              <p className="text-2xl md:text-4xl font-extrabold tracking-tight">Globe Lingual</p>
+              <p className="text-2xl md:text-4xl font-extrabold tracking-tight brand-font">Globe Lingual</p>
             </div>
           </Link>
         </div>
@@ -82,7 +81,7 @@ const Header = () => {
         <div className="flex gap-2">
           <div onClick={() => setDarkTheme(!darkTheme)} className="cursor-pointer">
             {
-              !darkTheme ? <BiMoon></BiMoon> : <BiSun></BiSun>
+              darkTheme ? <BiMoon></BiMoon> : <BiSun></BiSun>
             }
           </div>
           {user ?

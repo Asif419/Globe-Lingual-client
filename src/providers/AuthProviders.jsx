@@ -55,7 +55,6 @@ const AuthProviders = ({ children }) => {
         })
       }
       else {
-        console.log('logout');
         localStorage.removeItem('access-token');
       }
     });
