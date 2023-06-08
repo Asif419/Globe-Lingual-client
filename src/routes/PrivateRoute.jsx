@@ -7,6 +7,7 @@ const PrivateRoute = ({ children }) => {
   const location = useLocation();
 
   if (loading) {
+    console.log(1);
     <Dna
       visible={true}
       height="80"

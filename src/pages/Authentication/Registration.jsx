@@ -121,9 +121,9 @@ const Registration = () => {
       <div className="text-center text-4xl font-extrabold my-10">
         <p>Registration</p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 justify-center items-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 justify-center items-center my-5">
         {/* left side */}
-        <div>
+        <div className="order-last md:order-first">
           <Lottie
             animationData={loginAnimation}
             loop={true}
@@ -215,7 +215,7 @@ const Registration = () => {
           </div>
           <div className="mt-5 flex flex-col items-center">
             <p>Already have an account? <span> </span>
-              <Link to='/registration'><span className="underline">Login</span></Link>
+              <Link to='/login'><span className="underline">Login</span></Link>
             </p>
           </div>
         </div>
