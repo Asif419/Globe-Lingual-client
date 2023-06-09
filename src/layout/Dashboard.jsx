@@ -2,6 +2,8 @@ import { NavLink, Outlet } from "react-router-dom";
 import logo from '../../public/logo.png';
 import DashboardMenu from "../pages/Dashboard/DashboardMenu";
 
+//TODO: table responsive problem here
+
 const Dashboard = () => {
   return (
     <>

@@ -52,7 +52,12 @@ const Registration = () => {
               // update user profile in firebase
               updateUserProfile(name, user_photo_url)
                 .then(() => {
-                  const user = { user_name: name, user_email: email, user_photo_url, role: 'student' };
+                  const user = {
+                    user_name: name,
+                    user_email: email,
+                    user_photo_url,
+                    role: 'student'
+                  };
                   console.log(user);
                   reset();
                   baseAxios.post('/user', user)

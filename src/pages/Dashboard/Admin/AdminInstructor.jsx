@@ -1,7 +1,6 @@
 
 const AdminInstructor = ({ index, user, handleChangeRole }) => {
   const { _id, user_name, user_email, role, user_photo_url } = user;
-  console.log(user);
   return (
     <tr>
       <th>
