@@ -136,7 +136,7 @@ const AddClass = () => {
               </div>
             )
           }
-          <button onClick={() => setErrorMessage(null)} className="btn-gl" type="submit">Submit</button>
+          <button onClick={() => setErrorMessage(null)} className="btn-gl" type="submit">Add Class</button>
         </form>
       </div>
     </div >

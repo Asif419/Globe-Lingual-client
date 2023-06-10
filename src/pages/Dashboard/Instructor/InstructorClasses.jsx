@@ -1,8 +1,13 @@
 import useInstructorClasses from "../../../hooks/useInstructorClasses";
+import Loading from "../../Shared/Loading/Loading";
 import InstructorClass from "./InstructorClass";
 
 const InstructorClasses = () => {
-  const [instructorClasses] = useInstructorClasses();
+  const [instructorClasses, , isInstructorClassesLoading] = useInstructorClasses();
+
+  if (isInstructorClassesLoading) {
+    return <Loading></Loading>
+  }
 
   return (
     <div className="overflow-x-auto w-full">

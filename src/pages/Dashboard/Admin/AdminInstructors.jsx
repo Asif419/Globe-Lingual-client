@@ -3,22 +3,19 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useUsers from "../../../hooks/useUsers";
 import AdminInstructor from "./AdminInstructor";
+import Loading from "../../Shared/Loading/Loading";
 // import useAuth from "../../../hooks/useAuth";
 
 const AdminInstructors = () => {
   // const { loading } = useAuth();
-  const [allUsers, refetch] = useUsers();
+  const [allUsers, refetch, isAllUsersLoading] = useUsers();
   const [axiosSecure] = useAxiosSecure();
 
+  if (isAllUsersLoading) {
+    <Loading></Loading>
+  }
+
   const handleChangeRole = (id, role, name) => {
-    // const { data: updatedUser } = useQuery({
-    //   queryKey: ['updatedUser'],
-    //   enabled: !loading,
-    //   queryFn: async () => {
-    //     const res = await axiosSecure.patch(`/user?id=${id}&role=${role}`);
-    //     return res.data;
-    //   }
-    // })
     Swal.fire({
       title: 'Are you sure?',
       text: `Will ${name} get access of ${role}`,

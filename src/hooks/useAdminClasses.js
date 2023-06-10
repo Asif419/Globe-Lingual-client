@@ -6,7 +6,7 @@ const useAdminClasses = () => {
   const { loading } = useAuth();
   const [axiosSecure] = useAxiosSecure();
 
-  const { data: adminClasses = [], refetch } = useQuery({
+  const { data: adminClasses = [], refetch, isLoading: isAdminClassesLoading } = useQuery({
     queryKey: ['adminClasses'],
     enabled: !loading,
     queryFn: async () => {
@@ -14,7 +14,7 @@ const useAdminClasses = () => {
       return res.data;
     }
   })
-  return [adminClasses, refetch];
+  return [adminClasses, refetch, isAdminClassesLoading];
 };
 
 export default useAdminClasses;

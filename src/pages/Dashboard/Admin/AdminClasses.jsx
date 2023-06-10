@@ -2,10 +2,15 @@ import Swal from "sweetalert2";
 import useAdminClasses from "../../../hooks/useAdminClasses";
 import AdminClass from "./AdminClass";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import Loading from "../../Shared/Loading/Loading";
 
 const AdminClasses = () => {
-  const [adminClasses, refetch] = useAdminClasses();
+  const [adminClasses, refetch, isAdminClassesLoading] = useAdminClasses();
   const [axiosSecure] = useAxiosSecure();
+
+  if (isAdminClassesLoading) {
+    return <Loading></Loading>
+  }
 
   const handleChangeStatus = (id, status, clName) => {
     Swal.fire({

@@ -1,6 +1,6 @@
 
 const AdminClass = ({ c, index, handleChangeStatus }) => {
-  const { _id, class_name, class_photo_url, class_price, total_seats, enrolled_students, class_status, class_details, admin_review } = c;
+  const { _id, class_name, class_photo_url, class_price, total_seats, enrolled_students, class_status} = c;
 
   return (
     <tr>

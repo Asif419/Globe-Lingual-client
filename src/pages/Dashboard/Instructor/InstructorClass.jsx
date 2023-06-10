@@ -47,7 +47,7 @@ const InstructorClass = ({ c, index }) => {
         </div>
       </td>
       <td>
-        <div className="flex items-center justify-center space-x-3">
+        <div className={` ${class_status === 'approved' ? 'bg-green-2 00' : class_status === 'denied' ? 'bg-red-200' : 'bg-yellow-200'} rounded-xl flex items-center justify-center space-x-3`}>
           <div>
             <div className="font-bold">{class_status}</div>
           </div>
