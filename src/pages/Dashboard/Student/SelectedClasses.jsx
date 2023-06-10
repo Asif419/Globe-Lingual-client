@@ -1,28 +1,50 @@
+import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import useUser from "../../../hooks/useUser";
 import useUserClasses from "../../../hooks/useUserClasses";
 import Loading from "../../Shared/Loading/Loading";
 import SelectedClass from "./SelectedClass";
 
 const SelectedClasses = () => {
   const [userClasses, refetch, isUserClassesLoading] = useUserClasses();
-  const [userFromDB] = useUser();
-  const user_id = userFromDB?._id;
   const [axiosSecure] = useAxiosSecure();
 
   if (isUserClassesLoading) {
     return <Loading></Loading>
   }
 
-  const handleDelete = async (class_id,) => {
-    console.log(user_id, class_id);
-    axiosSecure.delete(`/delete-class-from-array/${class_id}`, {
-      class_id
+  const handleDelete = async (class_id, class_name) => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: `Delete ${class_name}`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Delete'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/delete-class-from-array/${class_id}`, {
+          class_id
+        }).then(response => {
+          if (response.data.deletedCount > 0) {
+            refetch();
+            Swal.fire(
+              'Deleted!',
+              'success'
+            )
+          }
+          else {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Something went wrong!',
+            })
+          }
+        })
+      }
     })
-    refetch();
-  }
 
-  console.log(userClasses)
+  }
 
   return (
     <div className="overflow-x-auto w-full">

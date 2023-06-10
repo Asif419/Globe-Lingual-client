@@ -19,6 +19,7 @@ import PaymentHistory from "../pages/Dashboard/Student/PaymentHistory";
 import AdminRoute from "./AdminRoute";
 import InstructorRoute from "./InstructorRoute";
 import StudentRoute from "./StudentRoute";
+import Payment from "../pages/Dashboard/Student/Payment";
 
 const router = createBrowserRouter([
   {
@@ -88,6 +89,10 @@ const router = createBrowserRouter([
       {
         path: 'payment-history',
         element: <StudentRoute><PaymentHistory /></StudentRoute>,
+      },
+      {
+        path: 'payment',
+        element: <StudentRoute><Payment /></StudentRoute>,
       },
     ]
   },

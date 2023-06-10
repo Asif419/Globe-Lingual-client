@@ -3,7 +3,7 @@ import Loading from "../../Shared/Loading/Loading";
 import Class from "./Class";
 
 const Classes = () => {
-  const [allClasses, refetch, isAllClassesLoading] = useAllClasses();
+  const [allClasses, , isAllClassesLoading] = useAllClasses();
 
   if(isAllClassesLoading) {
     return <Loading></Loading>

@@ -14,7 +14,6 @@ const useUserClasses = () => {
     enabled: !loading,
     queryFn: async () => {
       const res = await axiosSecure.get(`/user-classes/${id}`);
-      console.log(res);
       return res.data;
     }
   })

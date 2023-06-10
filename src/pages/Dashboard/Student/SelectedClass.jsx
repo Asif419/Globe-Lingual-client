@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
+import { Link } from "react-router-dom";
 
 const SelectedClass = ({ c, index, handleDelete }) => {
-  console.log(c);
-  const { selected_classes_id } = c;
+  const { _id, selected_classes_id } = c;
   const { loading } = useAuth();
   const [axiosSecure] = useAxiosSecure();
 
@@ -16,8 +16,6 @@ const SelectedClass = ({ c, index, handleDelete }) => {
       return res.data;
     }
   })
-
-  console.log(selectedClass);
 
   const { class_name, instructor_name, class_photo_url, class_price, total_seats, enrolled_students } = selectedClass;
 
@@ -69,8 +67,10 @@ const SelectedClass = ({ c, index, handleDelete }) => {
         </div>
       </td>
       <td className="flex flex-col gap-2 items-center justify-center text-center">
-        <button onClick={() => handleDelete(c?._id)} className="btn btn-xs bg-red-200">Delete</button>
-        <button className="btn btn-xs bg-green-200">Enroll</button>
+        <button onClick={() => handleDelete(c?._id, class_name)} className="btn btn-xs bg-red-200">Delete</button>
+        <Link to={`/dashboard/payment?classId=${_id}&price=${class_price}&selectedClassesId=${selected_classes_id}`}>
+          <button className="btn btn-xs bg-green-200">Enroll</button>
+        </Link>
       </td>
     </tr>
   );
