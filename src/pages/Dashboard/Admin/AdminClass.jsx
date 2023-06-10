@@ -1,16 +1,12 @@
 
-const InstructorClass = ({ c, index }) => {
-  const { class_name, class_photo_url, class_price, total_seats, enrolled_students, class_status, class_details, admin_review } = c;
+const AdminClass = ({ c, index, handleChangeStatus }) => {
+  const { _id, class_name, class_photo_url, class_price, total_seats, enrolled_students, class_status, class_details, admin_review } = c;
+
   return (
     <tr>
       <th>
         {index}
       </th>
-      {/* <td>
-        {class_name}
-        <br />
-        <span className="badge badge-ghost badge-sm">{class_status === 'pending' ? 'Pending' : class_status === 'approved' ? 'Approved' : 'Denied'}</span>
-      </td> */}
       <td>
         <div className="flex items-center space-x-3">
           <div>
@@ -49,19 +45,16 @@ const InstructorClass = ({ c, index }) => {
       <td>
         <div className="flex items-center justify-center space-x-3">
           <div>
-            <div className="font-bold">{class_status}</div>
+            <div className="font-bold">{class_status === 'pending' ? 'Pending' : class_status === 'approved' ? 'Approved' : 'Denied'}</div>
           </div>
         </div>
       </td>
-      <td>
-        <div className="flex items-center space-x-3 justify-center">
-          <div>
-            <button className="btn btn-xs">Admin Review</button>
-          </div>
-        </div>
+      <td className="flex flex-col gap-2 items-center justify-center text-center">
+        <button onClick={() => handleChangeStatus(_id, 'approved', class_name)} disabled={class_status === 'approved'} className="btn btn-xs">Approve</button>
+        <button onClick={() => handleChangeStatus(_id, 'denied', class_name)} disabled={class_status === 'denied'} className="btn btn-xs">Reject</button>
       </td>
     </tr>
   );
 };
 
-export default InstructorClass;
+export default AdminClass;

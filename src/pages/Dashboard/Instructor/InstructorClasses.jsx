@@ -1,9 +1,8 @@
-import useAllClasses from "../../../hooks/useAllClasses";
+import useInstructorClasses from "../../../hooks/useInstructorClasses";
 import InstructorClass from "./InstructorClass";
 
 const InstructorClasses = () => {
-  const [allClasses] = useAllClasses();
-  console.log(allClasses);
+  const [instructorClasses] = useInstructorClasses();
 
   return (
     <div className="overflow-x-auto w-full">
@@ -14,7 +13,7 @@ const InstructorClasses = () => {
             <th>#</th>
             <th className="text-start">Class Name</th>
             <th>Class Image</th>
-            <th>Price</th>
+            <th>Price $</th>
             <th>Max seat</th>
             <th>Enrolled Students</th>
             <th>Status</th>
@@ -23,7 +22,7 @@ const InstructorClasses = () => {
         </thead>
         <tbody className="text-center">
           {
-            allClasses.map((c, index) => <InstructorClass
+            instructorClasses.map((c, index) => <InstructorClass
               key={c._id}
               c={c}
               index={index + 1}

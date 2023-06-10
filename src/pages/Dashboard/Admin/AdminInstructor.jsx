@@ -26,8 +26,8 @@ const AdminInstructor = ({ index, user, handleChangeRole }) => {
         <span className="badge badge-ghost badge-sm">{role === 'admin' ? 'Admin' : role === 'instructor' ? 'Instructor' : 'Student'}</span>
       </td>
       <td className="flex flex-col gap-2 items-center justify-center text-center">
-        <button onClick={() => handleChangeRole(_id, 'admin')} disabled={role === 'admin'} className="btn btn-xs">Make Admin</button>
-        <button onClick={() => handleChangeRole(_id, 'instructor')} disabled={role === 'instructor'} className="btn btn-xs">Make Instructor</button>
+        <button onClick={() => handleChangeRole(_id, 'admin', user_name)} disabled={role === 'admin'} className="btn btn-xs">Make Admin</button>
+        <button onClick={() => handleChangeRole(_id, 'instructor', user_name)} disabled={role === 'instructor'} className="btn btn-xs">Make Instructor</button>
       </td>
     </tr>
   );
