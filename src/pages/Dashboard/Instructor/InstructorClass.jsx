@@ -5,7 +5,7 @@ const InstructorClass = ({ c, index }) => {
 
   const handleAdminReview = () => {
     Swal.fire({
-      title: 'Admin Review!',
+      title: `Review of ${class_name}!`,
       text: `${admin_review}`,
     })
   }
@@ -56,9 +56,9 @@ const InstructorClass = ({ c, index }) => {
         </div>
       </td>
       <td>
-        <div className={` ${class_status === 'approved' ? 'bg-green-2 00' : class_status === 'denied' ? 'bg-red-200' : 'bg-yellow-200'} rounded-xl flex items-center justify-center space-x-3`}>
+        <div className={` ${class_status === 'approved' ? 'bg-green-200' : class_status === 'denied' ? 'bg-red-200' : 'bg-yellow-200'} rounded-xl flex items-center justify-center space-x-3`}>
           <div>
-            <div className="font-bold">{class_status}</div>
+            <div className="font-bold">{class_status === 'approved' ? 'Approved' : class_status === 'denied' ? 'Rejected' : 'Pending'}</div>
           </div>
         </div>
       </td>

@@ -31,6 +31,7 @@ const AddClass = () => {
           const newClass = {
             instructor_email: user_email,
             instructor_id: user_id,
+            instructor_name: user_name,
             class_name: nameOfClass,
             class_photo_url,
             class_price: price,
@@ -38,7 +39,7 @@ const AddClass = () => {
             enrolled_students: 0,
             class_status: 'pending',
             class_details: classDetails,
-            admin_review: ''
+            admin_review: '',
           }
           axiosSecure.post('/add-class', newClass)
             .then((response) => {
