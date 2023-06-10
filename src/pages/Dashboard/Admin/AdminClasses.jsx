@@ -1,9 +1,11 @@
 import Swal from "sweetalert2";
 import useAdminClasses from "../../../hooks/useAdminClasses";
 import AdminClass from "./AdminClass";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const AdminClasses = () => {
-  const [adminClasses] = useAdminClasses();
+  const [adminClasses, refetch] = useAdminClasses();
+  const [axiosSecure] = useAxiosSecure();
 
   const handleChangeStatus = (id, status, clName) => {
     Swal.fire({
@@ -28,15 +30,31 @@ const AdminClasses = () => {
         }).then((result) => {
           console.log(result);
           if (result.isConfirmed) {
-            const text = result.value;
-            // Perform further actions with the entered text
-            console.log(text);
-            // Do something else...
+            const review = result.value;
+            axiosSecure.patch(`/class?id=${id}`, {
+              status, review
+            }).then(response => {
+              if (response.data.modifiedCount > 0) {
+                refetch();
+                Swal.fire(
+                  'Done!',
+                  `Class ${clName} updated`,
+                  'success'
+                )
+              }
+              else {
+                Swal.fire({
+                  icon: 'error',
+                  title: 'Oops...',
+                  text: 'Something went wrong!',
+                })
+              }
+            })
           }
         });
       }
     });
-    
+
   }
 
   return (

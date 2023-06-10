@@ -8,7 +8,6 @@ import AdminInstructor from "./AdminInstructor";
 const AdminInstructors = () => {
   // const { loading } = useAuth();
   const [allUsers, refetch] = useUsers();
-  console.log(allUsers);
   const [axiosSecure] = useAxiosSecure();
 
   const handleChangeRole = (id, role, name) => {
@@ -22,7 +21,7 @@ const AdminInstructors = () => {
     // })
     Swal.fire({
       title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      text: `Will ${name} get access of ${role}`,
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -34,14 +33,22 @@ const AdminInstructors = () => {
         axiosSecure.patch(`/user?id=${id}`, {
           role
         })
-          .then(res => {
-            console.log(res);
-            refetch();
-            Swal.fire(
-              'Done!',
-              `You made ${name} ${role}`,
-              'success'
-            )
+          .then(response => {
+            if (response.data.modifiedCount > 0) {
+              refetch();
+              Swal.fire(
+                'Done!',
+                `You made ${name} ${role}`,
+                'success'
+              )
+            }
+            else {
+              Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!',
+              })
+            }
           })
       }
     })
