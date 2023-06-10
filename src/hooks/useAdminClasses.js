@@ -10,7 +10,7 @@ const useAdminClasses = () => {
     queryKey: ['adminClasses'],
     enabled: !loading,
     queryFn: async () => {
-      const res = await axiosSecure.get('/classes');
+      const res = await axiosSecure.get('/admin-classes');
       return res.data;
     }
   })

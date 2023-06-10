@@ -13,6 +13,7 @@ const AdminClasses = () => {
   }
 
   const handleChangeStatus = (id, status, clName) => {
+    //TODO: change class;
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -33,7 +34,6 @@ const AdminClasses = () => {
           },
           showCancelButton: true
         }).then((result) => {
-          console.log(result);
           if (result.isConfirmed) {
             const review = result.value;
             axiosSecure.patch(`/class?id=${id}`, {
@@ -59,7 +59,43 @@ const AdminClasses = () => {
         });
       }
     });
+  }
 
+  const handleEditReview = (id, adminReview, clName) => {
+    Swal.fire({
+      input: 'textarea',
+      inputLabel: 'Review',
+      confirmButtonText: `Send review`,
+      inputPlaceholder: 'Type your class review here...',
+      inputAttributes: {
+        'aria-label': 'Type your Message here'
+      },
+      showCancelButton: true,
+      inputValue: `${adminReview}`
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const newReview = result.value;
+        axiosSecure.patch(`/edit-review?id=${id}`, {
+          newReview
+        }).then(response => {
+          if (response.data.modifiedCount > 0) {
+            refetch();
+            Swal.fire(
+              'Done!',
+              `${clName}'s review updated`,
+              'success'
+            )
+          }
+          else {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Something went wrong!',
+            })
+          }
+        })
+      }
+    });
   }
 
   return (
@@ -76,6 +112,7 @@ const AdminClasses = () => {
             <th>Enrolled Students</th>
             <th>Status</th>
             <th>Actions</th>
+            <th>Send Review</th>
           </tr>
         </thead>
         <tbody className="text-center">
@@ -85,6 +122,7 @@ const AdminClasses = () => {
               c={c}
               index={index + 1}
               handleChangeStatus={handleChangeStatus}
+              handleEditReview={handleEditReview}
             ></AdminClass>)
           }
         </tbody>

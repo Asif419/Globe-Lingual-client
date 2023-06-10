@@ -1,7 +1,7 @@
 import Swal from "sweetalert2";
 
 const InstructorClass = ({ c, index }) => {
-  const { class_name, class_photo_url, class_price, total_seats, enrolled_students, class_status, class_details, admin_review } = c;
+  const { class_name, class_photo_url, class_price, total_seats, enrolled_students, class_status, admin_review } = c;
 
   const handleAdminReview = () => {
     Swal.fire({
