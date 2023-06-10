@@ -1,6 +1,15 @@
+import Swal from "sweetalert2";
 
 const InstructorClass = ({ c, index }) => {
   const { class_name, class_photo_url, class_price, total_seats, enrolled_students, class_status, class_details, admin_review } = c;
+
+  const handleAdminReview = () => {
+    Swal.fire({
+      title: 'Admin Review!',
+      text: `${admin_review}`,
+    })
+  }
+
   return (
     <tr>
       <th>
@@ -56,7 +65,7 @@ const InstructorClass = ({ c, index }) => {
       <td>
         <div className="flex items-center space-x-3 justify-center">
           <div>
-            <button className="btn btn-xs">Admin Review</button>
+            <button disabled={class_status === 'pending'} onClick={handleAdminReview} className="btn btn-xs">Admin Review</button>
           </div>
         </div>
       </td>
