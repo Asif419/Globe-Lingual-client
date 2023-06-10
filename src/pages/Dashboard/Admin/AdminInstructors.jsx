@@ -26,7 +26,6 @@ const AdminInstructors = () => {
       confirmButtonText: `Yes make ${role}`
     }).then((result) => {
       if (result.isConfirmed) {
-
         axiosSecure.patch(`/user?id=${id}`, {
           role
         })
