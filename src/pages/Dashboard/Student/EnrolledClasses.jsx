@@ -2,12 +2,12 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useUser from "../../../hooks/useUser";
 import useAuth from "../../../hooks/useAuth";
+import EnrolledClass from "./EnrolledClass";
 
 const EnrolledClasses = () => {
   const { loading } = useAuth();
   const [userFromDB] = useUser();
   const [axiosSecure] = useAxiosSecure();
-  console.log(userFromDB._id);
 
   const { data: enrolledClasses = [], refetch } = useQuery({
     queryKey: ['enrolledClasses'],
@@ -18,11 +18,31 @@ const EnrolledClasses = () => {
     }
   })
 
-  console.log(2, enrolledClasses);
 
   return (
-    <div>
-      <h2>Enrolled Classes</h2>
+    <div className="overflow-x-auto w-full">
+      <table className="table w-full">
+        {/* head */}
+        <thead className="text-center">
+          <tr className="">
+            <th>#</th>
+            <th className="text-start">Class Name</th>
+            <th>Class Image</th>
+            <th>Instructor Name</th>
+            <th>Enrolled Students</th>
+          </tr>
+        </thead>
+        <tbody className="text-center">
+          {
+            enrolledClasses.map((c, index) => <EnrolledClass
+              key={c._id}
+              c={c}
+              index={index + 1}
+            // handleChangeRole={handleChangeRole}
+            ></EnrolledClass>)
+          }
+        </tbody>
+      </table>
     </div>
   );
 };

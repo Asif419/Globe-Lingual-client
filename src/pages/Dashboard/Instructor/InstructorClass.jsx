@@ -30,7 +30,7 @@ const InstructorClass = ({ c, index }) => {
       <td>
         <div className="avatar">
           <div className="mask mask-squircle w-12 h-12">
-            <img src={class_photo_url} alt="Avatar Tailwind CSS Component" />
+            <img src={class_photo_url} alt={class_name} />
           </div>
         </div>
       </td>
