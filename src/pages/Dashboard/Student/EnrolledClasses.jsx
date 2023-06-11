@@ -9,7 +9,7 @@ const EnrolledClasses = () => {
   const [userFromDB] = useUser();
   const [axiosSecure] = useAxiosSecure();
 
-  const { data: enrolledClasses = [], refetch } = useQuery({
+  const { data: enrolledClasses = [] } = useQuery({
     queryKey: ['enrolledClasses'],
     enabled: !loading,
     queryFn: async () => {

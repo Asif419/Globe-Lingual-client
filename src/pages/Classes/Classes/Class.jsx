@@ -9,13 +9,10 @@ const Class = ({ c }) => {
   const new_class_id = c?._id;
   const { user } = useAuth();
   const [userFromDB] = useUser();
-  console.log(userFromDB);
   const { role, _id: userId } = userFromDB || {};
   const navigate = useNavigate();
   const location = useLocation();
   const [axiosSecure] = useAxiosSecure();
-
-
 
   const handleSelect = () => {
     if (!user) {

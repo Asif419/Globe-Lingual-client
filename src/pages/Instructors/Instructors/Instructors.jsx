@@ -1,8 +1,18 @@
+import useInstructors from "../../../hooks/useInstructors";
+import Instructor from "./Instructor";
 
 const Instructors = () => {
+  const [instructors] = useInstructors();
+  console.log(instructors);
+
   return (
     <div>
-      <h2>Instructors</h2>
+      {
+        instructors.map(instructor => <Instructor
+          key={instructor._id}
+          instructor={instructor}
+        ></Instructor>)
+      }
     </div>
   );
 };
