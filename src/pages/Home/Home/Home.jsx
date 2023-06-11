@@ -6,6 +6,8 @@ import PopularClasses from "../PopularClass/PopularClasses";
 import HeadLine from "../Headline/Headline";
 import HeadLineThree from "../HeadLine/HeadLineThree";
 import Reviews from "../Reviews/Reviews";
+import HeadLineFour from "../HeadLine/HeadLineFour";
+import Instructors from "../Instructors/Instructors";
 
 
 const Home = () => {
@@ -22,6 +24,8 @@ const Home = () => {
       <PopularClasses></PopularClasses>
       <HeadLineThree></HeadLineThree>
       <Reviews></Reviews>
+      <HeadLineFour></HeadLineFour>
+      <Instructors></Instructors>
     </>
   );
 };

@@ -4,7 +4,7 @@ import useAxios from "./useAxios";
 const useInstructors = () => {
   const [baseAxios] = useAxios();
 
-  const { data: instructors = [], } = useQuery({
+  const { data: instructors = [], isLoading: isInstructorsLoading } = useQuery({
     queryKey: ['instructors'],
     queryFn: async () => {
       const res = await baseAxios.get('/instructors');
@@ -12,7 +12,7 @@ const useInstructors = () => {
     }
   })
 
-  return [instructors];
+  return [instructors, isInstructorsLoading];
 };
 
 export default useInstructors;
