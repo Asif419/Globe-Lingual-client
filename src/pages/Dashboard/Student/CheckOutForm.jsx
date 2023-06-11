@@ -5,7 +5,7 @@ import './CheckoutForm.css';
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 
-const CheckOutForm = ({ classId, selectedClassId, price }) => {
+const CheckOutForm = ({ classId, selectedClassId, price, userId }) => {
   const stripe = useStripe();
   const elements = useElements();
   const { user } = useAuth();
@@ -73,9 +73,10 @@ const CheckOutForm = ({ classId, selectedClassId, price }) => {
       setTransactionId(paymentIntent.id);
       // save payment info
       const payment = {
-        classId,
-        selectedClassId,
-        transactionId: paymentIntent.id,
+        class_id: classId,
+        selected_class_id: selectedClassId,
+        user_id: userId,
+        transaction_id: paymentIntent.id,
         price,
         date: new Date(),
       }

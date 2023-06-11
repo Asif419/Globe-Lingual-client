@@ -11,6 +11,7 @@ const Payment = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const classId = queryParams.get("classId");
+  const userId = queryParams.get("userId");
   const selectedClassesId = queryParams.get("selectedClassesId");
   const string_price = queryParams.get("price");
   const float_price = parseFloat(string_price);
@@ -27,6 +28,7 @@ const Payment = () => {
           classId={classId}
           selectedClassId={selectedClassesId}
           price={price}
+          userId={userId}
         >
         </CheckOutForm>
       </Elements>

@@ -2,7 +2,7 @@ import useUser from "../../../hooks/useUser";
 
 const EnrolledClasses = () => {
   const [userFromDB] = useUser();
-  console.log(userFromDB);
+  console.log(userFromDB._id);
   
   return (
     <div>

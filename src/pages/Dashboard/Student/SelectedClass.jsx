@@ -4,7 +4,7 @@ import useAuth from "../../../hooks/useAuth";
 import { Link } from "react-router-dom";
 
 const SelectedClass = ({ c, index, handleDelete }) => {
-  const { _id, selected_classes_id } = c;
+  const { _id, selected_classes_id, user_id } = c;
   const { loading } = useAuth();
   const [axiosSecure] = useAxiosSecure();
 
@@ -18,6 +18,7 @@ const SelectedClass = ({ c, index, handleDelete }) => {
   })
 
   const { class_name, instructor_name, class_photo_url, class_price, total_seats, enrolled_students } = selectedClass;
+  console.log(enrolled_students, total_seats);
 
   return (
     <tr>
@@ -68,9 +69,15 @@ const SelectedClass = ({ c, index, handleDelete }) => {
       </td>
       <td className="flex flex-col gap-2 items-center justify-center text-center">
         <button onClick={() => handleDelete(c?._id, class_name)} className="btn btn-xs bg-red-200">Delete</button>
-        <Link to={`/dashboard/payment?classId=${_id}&price=${class_price}&selectedClassesId=${selected_classes_id}`}>
-          <button className="btn btn-xs bg-green-200">Enroll</button>
-        </Link>
+        {
+          enrolled_students >= total_seats ?
+            <button disabled={true} className="btn btn-xs bg-green-200">No vacancies</button>
+            :
+            <Link to={`/dashboard/payment?classId=${_id}&price=${class_price}&selectedClassesId=${selected_classes_id}&userId=${user_id}`}>
+              <button className="btn btn-xs bg-green-200">Enroll</button>
+            </Link>
+        }
+
       </td>
     </tr>
   );
