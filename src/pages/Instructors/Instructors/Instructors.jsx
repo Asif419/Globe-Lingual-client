@@ -6,7 +6,7 @@ const Instructors = () => {
   console.log(instructors);
 
   return (
-    <div>
+    <div className="shadow-sm grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3 my-5 md:my-10 lg:my-20">
       {
         instructors.map(instructor => <Instructor
           key={instructor._id}

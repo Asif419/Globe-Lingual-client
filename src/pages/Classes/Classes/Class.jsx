@@ -42,15 +42,19 @@ const Class = ({ c }) => {
 
 
   return (
-    <div className="card card-side bg-base-100 shadow-xl">
+    <div className={`card card-side shadow-xl ${total_seats <= enrolled_students ? 'bg-red-100' : 'bg-base-100'}`}>
 
       <figure style={{ maxWidth: '25%' }}><img src={class_photo_url} alt={class_name} style={{ height: '100%', objectFit: 'cover' }} /></figure>
 
       <div className="card-body">
-        <h2 className="card-title">{class_name}</h2>
+        <div className="card-title flex items-center justify-between">
+          <h2>{class_name}</h2>
+          <h2>${class_price}</h2>
+        </div>
         <p>{instructor_name}</p>
+        <p>Available seats <span className="text-xl font-extrabold">{total_seats - enrolled_students}</span> <br /> among <span className="font-extrabold">{total_seats}</span></p>
         <div className="card-actions justify-end">
-          <button disabled={role === 'admin' || role === 'instructor'} onClick={handleSelect} className="btn btn-primary">Select</button>
+          <button disabled={role === 'admin' || role === 'instructor' || total_seats <= enrolled_students} onClick={handleSelect} className="btn btn-sm btn-primary">Select</button>
         </div>
       </div>
     </div >
