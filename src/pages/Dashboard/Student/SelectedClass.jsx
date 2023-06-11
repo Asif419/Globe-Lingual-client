@@ -18,7 +18,6 @@ const SelectedClass = ({ c, index, handleDelete }) => {
   })
 
   const { class_name, instructor_name, class_photo_url, class_price, total_seats, enrolled_students } = selectedClass;
-  console.log(enrolled_students, total_seats);
 
   return (
     <tr>
