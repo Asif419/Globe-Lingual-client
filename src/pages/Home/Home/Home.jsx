@@ -4,6 +4,8 @@ import Slider from "../Slider/Slider";
 import HeadLineTwo from "../HeadLine/HeadLineTwo";
 import PopularClasses from "../PopularClass/PopularClasses";
 import HeadLine from "../Headline/Headline";
+import HeadLineThree from "../HeadLine/HeadLineThree";
+import Reviews from "../Reviews/Reviews";
 
 
 const Home = () => {
@@ -18,6 +20,8 @@ const Home = () => {
       <Slider></Slider>
       <HeadLineTwo></HeadLineTwo>
       <PopularClasses></PopularClasses>
+      <HeadLineThree></HeadLineThree>
+      <Reviews></Reviews>
     </>
   );
 };

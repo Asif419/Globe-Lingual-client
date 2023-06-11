@@ -12,8 +12,8 @@ const HeadLine = () => {
           <p>Online learning offers a new way to explore subjects <br /> you’re passionate about.</p>
         </div>
         <div className="place-self-center md:place-self-end">
-          <Link to="/classes">
-            <button className="btn btn-primary rounded-3xl">+ALL COURSES</button>
+          <Link to="/login">
+            <button className="btn btn-primary rounded-3xl">Login</button>
           </Link>
         </div>
       </div>
