@@ -1,8 +1,9 @@
 import { Helmet } from "react-helmet-async";
 import Banner from "../Banner/Banner";
 import Slider from "../Slider/Slider";
-import Header from "../../Shared/Header/Header";
-import HeadLine from "../HeadLine/HeadLine";
+import HeadLineTwo from "../HeadLine/HeadLineTwo";
+import PopularClasses from "../PopularClass/PopularClasses";
+import HeadLine from "../Headline/Headline";
 
 
 const Home = () => {
@@ -15,6 +16,8 @@ const Home = () => {
       <Banner></Banner>
       <HeadLine></HeadLine>
       <Slider></Slider>
+      <HeadLineTwo></HeadLineTwo>
+      <PopularClasses></PopularClasses>
     </>
   );
 };

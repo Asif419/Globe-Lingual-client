@@ -1,12 +1,9 @@
 import { Link } from "react-router-dom";
-import useAuth from "../../../hooks/useAuth";
 import Lottie from "lottie-react";
 import animation from '../../../assets/animation/education.json'
 
 
 const Banner = () => {
-  const { darkTheme } = useAuth();
-  console.log(darkTheme);
 
   return (
     <div className={`text-center py-10 md:py-16 lg:py-20 tracking-wider rounded-3xl`}>

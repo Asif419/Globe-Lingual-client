@@ -52,6 +52,7 @@ const Slider = () => {
               <div className="max-w-md">
                 <h1 className="mb-5  text-3xl md:text-5xl font-bold">Mange Dashboard</h1>
                 <p className="mb-5 sm:text-xs md:text-base">Unlock the world of languages with Globe Lingual - your destination for immersive language learning and cultural exploration.</p>
+                {/* TODO: change link for no logged in users */}
                 <Link to='/dashboard'><button className="btn btn-primary">DASHBOARD</button></Link>
               </div>
             </div>

@@ -7,14 +7,13 @@ import SinglePayment from "./SinglePayment";
 const PaymentHistory = () => {
   const { loading } = useAuth();
   const [userFromDB] = useUser();
-  // TODO: userFromDB._id
   const [axiosSecure] = useAxiosSecure();
 
   const { data: payments = [] } = useQuery({
     queryKey: ['enrolledClasses'],
     enabled: !loading,
     queryFn: async () => {
-      const res = await axiosSecure.get(`/payment/${userFromDB}`);
+      const res = await axiosSecure.get(`/payment/${userFromDB._id}`);
       return res.data;
     }
   })
