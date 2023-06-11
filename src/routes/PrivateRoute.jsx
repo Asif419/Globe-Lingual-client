@@ -6,7 +6,7 @@ const PrivateRoute = ({ children }) => {
   const { user, loading } = useAuth();
   const location = useLocation();
 
-  if (loading) {
+  if (user && loading) {
     return <>
       <div className="flex items-center justify-center">
         <Dna

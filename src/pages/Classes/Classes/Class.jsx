@@ -3,6 +3,8 @@ import useAuth from "../../../hooks/useAuth";
 import useUser from "../../../hooks/useUser";
 import { useLocation, useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { toast } from "react-hot-toast";
+
 
 const Class = ({ c }) => {
   const { instructor_name, class_name, class_photo_url, class_price, total_seats, enrolled_students, class_status, class_details } = c;
@@ -13,6 +15,8 @@ const Class = ({ c }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const [axiosSecure] = useAxiosSecure();
+  const notify = (message) => toast(message);
+
 
   const handleSelect = () => {
     if (!user) {
@@ -32,11 +36,20 @@ const Class = ({ c }) => {
       })
     }
     else {
-      console.log(userId, new_class_id)
       axiosSecure.post('/selected-class', {
         userId,
         new_class_id
-      });
+      }).then(response => {
+        if (response.data.insertedId) {
+          notify(`${class_name} added as selected class 😊`);
+        }
+        else {
+          notify(`Sorry, Something went wrong 😟`);
+        }
+      })
+      .catch(() => {
+        notify(`Sorry, Something went wrong 😟`);
+      })
     }
   }
 
