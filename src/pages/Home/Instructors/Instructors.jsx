@@ -13,7 +13,6 @@ const Instructors = () => {
     }
   })
 
-  console.log(popularInstructors);
 
   return (
     <div className="pt-3 md:pt-5 lg:pt-10 pb-10 md:pb-20 lg:pb-32 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
