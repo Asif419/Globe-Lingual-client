@@ -5,22 +5,21 @@ import one from '../../../assets/image/language/one.jpg';
 // import two from '../../../assets/image/language/two.jpg';
 import three from '../../../assets/image/language/three.jpg';
 import four from '../../../assets/image/language/four.jpg';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 import { Pagination } from "swiper";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 const Slider = () => {
 
-  
-useEffect(() => {
-  AOS.init({
-  });
-}, []);
+
+  useEffect(() => {
+    AOS.init({
+    });
+  }, []);
 
   return (
     <div className="text-white">

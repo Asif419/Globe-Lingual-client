@@ -29,4 +29,6 @@ const HeadLine = () => {
   );
 };
 
-export default HeadLine; 
+export default HeadLine;
+
+
