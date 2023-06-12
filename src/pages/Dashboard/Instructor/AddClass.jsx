@@ -13,7 +13,6 @@ const AddClass = () => {
   const [user] = useUser();
   const [axiosSecure] = useAxiosSecure();
   const { _id: user_id, user_name, user_email } = user;
-  //TODO: remove https://cors-anywhere.herokuapp.com/ from imageHostingURL
   const imageHostingURL = `https://api.imgbb.com/1/upload?key=${image_upload_token}`;
 
   const onSubmit = async (data) => {
