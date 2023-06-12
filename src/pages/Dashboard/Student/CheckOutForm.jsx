@@ -5,6 +5,7 @@ import './CheckoutForm.css';
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const CheckOutForm = ({ classId, selectedClassId, price, userId }) => {
   const stripe = useStripe();
@@ -95,11 +96,14 @@ const CheckOutForm = ({ classId, selectedClassId, price, userId }) => {
           }
         })
     }
-    //TODO: after successful payment send to payment history
   }
 
   return (
     <>
+      <Helmet>
+        <title>GlobeLingual | Payment</title>
+      </Helmet>
+
       <form className="w-2/3 mx-auto" onSubmit={handleSubmit}>
         <CardElement
           options={{

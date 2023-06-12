@@ -4,10 +4,16 @@ import useUserClasses from "../../../hooks/useUserClasses";
 import Loading from "../../Shared/Loading/Loading";
 import SelectedClass from "./SelectedClass";
 import Caption from "../../Shared/Caption";
+import { Helmet } from "react-helmet-async";
+import { useEffect } from "react";
 
 const SelectedClasses = () => {
   const [userClasses, refetch, isUserClassesLoading] = useUserClasses();
   const [axiosSecure] = useAxiosSecure();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   if (isUserClassesLoading) {
     return <Loading></Loading>
@@ -48,36 +54,42 @@ const SelectedClasses = () => {
   }
 
   return (
-    <div className="w-screen md:w-full">
-      <Caption heading='My Selected Classes'></Caption>
-      <div className="overflow-x-auto w-full mt-5">
-        <table className="table w-full">
-          {/* head */}
-          <thead className="text-center">
-            <tr className="">
-              <th>#</th>
-              <th className="text-start">Class Name</th>
-              <th>Class Image</th>
-              <th>Price $</th>
-              <th>Instructor Name</th>
-              <th>Max seat</th>
-              <th>Enrolled Students</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody className="text-center">
-            {
-              userClasses.map((c, index) => <SelectedClass
-                key={index}
-                c={c}
-                index={index + 1}
-                handleDelete={handleDelete}
-              ></SelectedClass>)
-            }
-          </tbody>
-        </table>
+    <>
+      <Helmet>
+        <title>GlobeLingual | Selections</title>
+      </Helmet>
+
+      <div className="w-screen md:w-full">
+        <Caption heading='My Selected Classes'></Caption>
+        <div className="overflow-x-auto w-full mt-5">
+          <table className="table w-full">
+            {/* head */}
+            <thead className="text-center">
+              <tr className="">
+                <th>#</th>
+                <th className="text-start">Class Name</th>
+                <th>Class Image</th>
+                <th>Price $</th>
+                <th>Instructor Name</th>
+                <th>Max seat</th>
+                <th>Enrolled Students</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody className="text-center">
+              {
+                userClasses.map((c, index) => <SelectedClass
+                  key={index}
+                  c={c}
+                  index={index + 1}
+                  handleDelete={handleDelete}
+                ></SelectedClass>)
+              }
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

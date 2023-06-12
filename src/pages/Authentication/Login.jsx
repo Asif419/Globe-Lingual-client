@@ -8,6 +8,7 @@ import loginAnimation from '../../assets/animation/login.json'
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAxios from "../../hooks/useAxios";
 import { toast } from "react-hot-toast";
+import Caption from "../Shared/Caption";
 
 const Login = () => {
   const { darkTheme, googleSingIn, signIn } = useAuth();
@@ -19,6 +20,10 @@ const Login = () => {
   const from = location.state?.from?.pathname || '/';
   const [baseAxios] = useAxios();
   const notify = (message) => toast(`${message}`);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleGoogleSignIn = () => {
     setErrorMessage(null);
@@ -55,22 +60,16 @@ const Login = () => {
       })
   }
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <>
       <Helmet>
         <title>GlobeLingual | Login</title>
       </Helmet>
 
-      <div className="text-center text-4xl font-extrabold my-10 md:my-3">
-        <p>Login</p>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 justify-center items-center">
+      <Caption heading='Login'></Caption>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 justify-center items-center my-5">
         {/* left side */}
-        <div className={`w-full p-4 md:p-8 lg:p-10 mx-auto rounded-2xl ${darkTheme ? 'bg-slate-800' : 'bg-slate-200'}`}>
+        <div className={`w-full mx-auto rounded-2xl ${darkTheme ? 'bg-slate-800' : 'bg-slate-200'}`}>
           <form className="flex flex-col gap-5" onSubmit={handleSubmit(onSubmit)}>
             <div className="px-2 md:px-20 flex-col w-full items-center">
               <p className="label-text">Email*</p>
@@ -111,7 +110,7 @@ const Login = () => {
             <p>Social Login</p>
             <AiFillGoogleCircle onClick={handleGoogleSignIn} className="w-12 h-12 cursor-pointer"></AiFillGoogleCircle>
           </div>
-          <div className="mt-5 flex flex-col items-center">
+          <div className="mt-5 flex flex-col items-center mb-10">
             <p>Are you new here? <span> </span>
               <Link to='/registration'><span className="underline">Sign up</span></Link>
             </p>

@@ -8,9 +8,14 @@ import HeadLineThree from "../HeadLine/HeadLineThree";
 import Reviews from "../Reviews/Reviews";
 import HeadLineFour from "../HeadLine/HeadLineFour";
 import Instructors from "../Instructors/Instructors";
+import { useEffect } from "react";
 
 
 const Home = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <Helmet>

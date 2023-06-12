@@ -9,6 +9,7 @@ import loginAnimation from '../../assets/animation/login.json'
 import axios from "axios";
 import useAxios from "../../hooks/useAxios";
 import toast from 'react-hot-toast';
+import Caption from "../Shared/Caption";
 
 const image_upload_token = import.meta.env.VITE_IMAGE_UPLOAD_TOKEN;
 const notify = (message) => toast(`${message}`);
@@ -26,11 +27,15 @@ const Registration = () => {
   const imageHostingURL = `https://api.imgbb.com/1/upload?key=${image_upload_token}`;
 
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+
   const onSubmit = async (data) => {
 
     const formData = new FormData();
     formData.append('image', data.image[0]);
-
     const { name, email, password, conPassword } = data;
 
 
@@ -110,22 +115,16 @@ const Registration = () => {
       })
   }
 
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <>
       <Helmet>
         <title>GlobeLingual | Registration</title>
       </Helmet>
 
+      <Caption heading='Registration'></Caption>
+
       {/* <PageBanner header='Registration'></PageBanner> */}
 
-      <div className="text-center text-4xl font-extrabold my-10">
-        <p>Registration</p>
-      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-2 justify-center items-center my-5">
         {/* left side */}
         <div className="order-last md:order-first">
@@ -135,7 +134,7 @@ const Registration = () => {
           ></Lottie>
         </div>
         {/* right side */}
-        <div className={`w-full p-4 md:p-8 lg:p-10 mx-auto rounded-2xl ${darkTheme ? 'bg-slate-800' : 'bg-slate-200'}`}>
+        <div className={`w-full mx-auto rounded-2xl ${darkTheme ? 'bg-slate-800' : 'bg-slate-200'}`}>
           <form className="flex flex-col gap-2" onSubmit={handleSubmit(onSubmit)}>
             {/* name */}
             <div className="px-2 md:px-20 flex-col w-full items-center">
@@ -218,7 +217,7 @@ const Registration = () => {
             <p>Social Login</p>
             <AiFillGoogleCircle onClick={handleGoogleSignIn} className="w-12 h-12 cursor-pointer"></AiFillGoogleCircle>
           </div>
-          <div className="mt-5 flex flex-col items-center">
+          <div className="mt-5 flex flex-col items-center mb-10">
             <p>Already have an account? <span> </span>
               <Link to='/login'><span className="underline">Login</span></Link>
             </p>
