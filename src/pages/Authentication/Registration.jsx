@@ -63,7 +63,6 @@ const Registration = () => {
                     user_photo_url,
                     role: 'student'
                   };
-                  console.log(user);
                   reset();
                   baseAxios.post('/user', user)
                     .then(() => {
