@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 
 
 const Class = ({ c }) => {
-  const { instructor_name, class_name, class_photo_url, class_price, total_seats, enrolled_students, class_status, class_details } = c;
+  const { instructor_name, class_name, class_photo_url, class_price, total_seats, enrolled_students } = c;
   const new_class_id = c?._id;
   const { user } = useAuth();
   const [userFromDB] = useUser();

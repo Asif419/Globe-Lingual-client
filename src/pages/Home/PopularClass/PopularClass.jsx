@@ -8,7 +8,8 @@ const PopularClass = ({ c }) => {
     <motion.div
       animate="visible"
       initial={{ opacity: 0, scale: 0.8 }}
-      whileInView={{ opacity: 1, scale: 1 }}
+      whileInView={{ opacity: 1, scale: 0.9 }}
+      whileHover={{ opacity: 1, scale: 1.1 }}
       transition={{ duration: 1 }}
       className="card card-compact bg-base-100 shadow-xl"
     >
