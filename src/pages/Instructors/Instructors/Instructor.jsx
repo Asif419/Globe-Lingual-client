@@ -11,10 +11,10 @@ const Instructor = ({ instructor }) => {
       transition={{ duration: 0.7 }}
     >
 
-      <div className="card bg-base-100 shadow-xl">
+      <div className="card bg-base-100 h-96 shadow-xl">
         {/* aspect-w-3 aspect-h-4  (use it in bottom line to equal image)*/}
-        <figure className="px-2 pt-5">
-          <img src={user_photo_url} alt="Shoes" className="rounded-xl h-32 w-32" />
+        <figure className=" px-2 pt-5">
+          <img src={user_photo_url} alt="Shoes" className="rounded-xl min-h-52 min-w-52 max-h-52 max-w-52 object-cover" />
         </figure>
         <div className="card-body items-center text-center">
           <h2 className="card-title">{user_name}</h2>

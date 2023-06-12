@@ -65,7 +65,7 @@ const InstructorClass = ({ c, index }) => {
       <td>
         <div className="flex items-center space-x-3 justify-center">
           <div>
-            <button disabled={class_status === 'pending'} onClick={handleAdminReview} className="btn btn-xs">Admin Review</button>
+            <button disabled={class_status === 'pending' || class_status=='approved'} onClick={handleAdminReview} className="btn btn-xs">Admin Review</button>
           </div>
         </div>
       </td>

@@ -46,7 +46,7 @@ const Header = () => {
       user &&
       <li>
         <NavLink
-          to='/dashboard'
+          to={`${userFromDB?.role === 'admin' ? '/dashboard/admin-instructors' : userFromDB?.role === 'instructor' ? '/dashboard/instructor-classes' : '/dashboard/selected-classes'}`}
           className={({ isActive }) =>
             isActive ? "text-blue-600 font-extrabold border-b-4 border-blue-600" : ""
           }

@@ -29,7 +29,7 @@ const Banner = () => {
           animationData={animation}
           className="h-[300px] w-[300px] md:h-[500px] md:w-[500px] lg:h-[650px] lg:w-[650px]"
           // TODO: make true instead false
-          loop={false}
+          loop={true}
         ></Lottie>
       </div>
     </div>

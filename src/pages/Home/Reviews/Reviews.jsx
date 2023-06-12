@@ -97,7 +97,7 @@ const Reviews = () => {
         <SwiperSlide>
           <div>
             <img className="h-4 w-4" src={quotation} alt="" />
-            <h2 className="text-center">I am impressed with the quality of teaching at Globe Lingual. The lessons are well-structured and the instructors are knowledgeable.</h2>
+            <h2 className="text-center">I am impressed with the quality of teaching at Globe Lingual. The lessons are well-structured and the instructors.</h2>
             <hr className="my-5" />
             <div className="mb-5 flex justify-between items-center">
               <div className="flex-row">

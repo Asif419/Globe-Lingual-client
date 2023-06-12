@@ -43,7 +43,7 @@ const DashboardMenu = () => {
           :
           role === 'instructor' ?
             <>
-              <li><NavLink to='/dashboard/instructor-home'>Instructor Home<img className="w-8 h-8" src={home} alt="gl" /></NavLink></li>
+              {/* <li><NavLink to='/dashboard/instructor-home'>Instructor Home<img className="w-8 h-8" src={home} alt="gl" /></NavLink></li> */}
               <li><NavLink
                 to='/dashboard/add-class'
                 className={({ isActive }) =>
