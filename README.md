@@ -1,60 +1,79 @@
-# The Recipe Room
-## _Programming Hero Assignment 10_
-- This website made on based American chefs and recipes. You will find American most popular chefs and their most viewed recipes here. But you need to just log in / registration to get the full access
+# Globe Lingual
+## _Programming Hero Assignment 12_
+- This website made on to purchase class on summer Boot camp. After Login user will be a student and can select his/her favorite subject. If one pay for his selected class then it goes to enrolled class section. Instructor also can add class here after getting access of instructor from an admin.
 
 ## Live Link
-> https://the-recipe-room-client.web.app   
-full project will be available here
+> https://globe-lingual.web.app
+Full project will be available here
 
-## To login use demo id
-Email: user@gmail.com
-Password: 123456A
-Guide on creating a new user: Make sure your password has at least one Uppercase and one number, and Also you have to confirm your password has more than 5 characters
 
 ## This website's server in GitHub
-> https://github.com/programming-hero-web-course-4/b7a10-chef-recipe-hunter-server-side-Asif419 (Private not for everyone)   
+> https://github.com/programming-hero-web-course1/b7a12-summer-camp-server_side-Asif419 (Private not for everyone)   
 
 ## Features
-This is a react project with react router and tailwind css. The main features of this website are: 
+This is project of learning languages: 
 
-- Find Chefs
-- Figure out their most liked recipes 
-- Read about those recipes
-- Recipes are protected route (after login you can go to those pages)
-- Login and logout system with firebase authentication
-- Download Blog details in PDF format
-- User profile
+- Show all classes as a guest
+- Show all instructors as a guest
+- Log in as a student
+- Buy course from this website
+- Payment system for enroll classes
+- Enroll in a class before class become fully booked
+- Get access of Instructor after confirmation from admin
+- Sell your courses as a instructor
+- Admin can terminate newly open class
+- Admin can take access of an instructor
+- Change theme
 
 > It is single page application 
-> You will find five routes 
+> You will four main routes here 
 > One for Home
-> Another for check all available chefs
-> Login / Registration route
-> User profile
-> Last one for blog which have four important questions about react
-> Blogs for four important question about react
+> Instructors
+> Classes
+> Dashboard
+> Responsive
+
+## Technologies
+> MERN (MongoDB, Express.js, ReactJS, Node.js)
+> HTML, Tailwind CSS, DaisyUI, JS
+> React router dom
+> JWT, Axios, TanStack Query, React hook form, Swipper, Framer Motion, Sweet alart, 
+> Stripe (Payment)
+
+
 
 ## Functionalities
 
 All functionalities are shown here:
 
-- Responsive Navbar 
-- Login information in Navbar 
-- Click on user picture found logout and profile buttons.
-- In profile route you will find your details with picture and name.
-- In home page, banner will show summary of website with total data and some recipes photo of our own.
-- Dynamic chefs list with see more / see less button.
-- Each chef has Details button which are protected route.
-- After login you can go to the chef details.
-- In chef details you will find bio of that chef.
-- Most popular dished of that chef.
-- Each dishes rating, name, ingredients and also cooking procedure.
-- You may mark a dish as your favorite.
-- A toaster will confirm about favorite making.
-- Main menu of ours chefs (in which category they are expert)
-- Recipes list button and contact information 
-- Dynamacilly most popular recipes information (which has most rating in data).
+- As a user:
+- Show all classes
+- Show all Instructors
+- Popular classes
+- Popular instructors
+- Feedback from Users
+
+- As a Student
+- Select a class for enroll
+- Show selected classes
+- Delete a class from selected class
+- Pay via card for enroll 
+- Show enrolled classes
+
+- As a Instructor 
+- Can't select class for enroll
+- Add a class
+- Check all classes list
+- Show review of a class
+
+-As a Admin
+- Can't select class for enroll
+- Show all Classes list
+- Show all Instructors List
+- Approve pending class
+- Make a user admin/instructor
+- Send review while approving class
 
 ## License From
-Asif Shahariar
-**The Racipe Room**
+Asif Shahariar (asifshahariar419@gmail.com)
+**Globe Lingual**

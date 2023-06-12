@@ -112,7 +112,7 @@ const AdminClasses = () => {
       </Helmet>
 
       <div className="w-screen md:w-full">
-        <Caption heading='Instructors'></Caption>
+        <Caption heading='Classes List'></Caption>
         <div className="overflow-x-auto w-full mt-5">
           <table className="table w-full">
             {/* head */}
