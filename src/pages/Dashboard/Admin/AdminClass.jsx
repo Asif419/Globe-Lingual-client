@@ -43,7 +43,7 @@ const AdminClass = ({ c, index, handleChangeStatus, handleEditReview }) => {
         </div>
       </td>
       <td>
-        <div className="flex items-center justify-center space-x-3">
+        <div className={`flex items-center justify-center space-x-3 rounded-lg ${class_status === 'pending' ? 'bg-yellow-100' : class_status === 'denied' ? 'bg-red-200' : 'bg-green-200'}`}>
           <div>
             <div className="font-bold">{class_status === 'pending' ? 'Pending' : class_status === 'approved' ? 'Approved' : 'Denied'}</div>
           </div>
