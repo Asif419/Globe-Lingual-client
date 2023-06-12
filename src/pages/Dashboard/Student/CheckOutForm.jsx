@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import './CheckoutForm.css';
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const CheckOutForm = ({ classId, selectedClassId, price, userId }) => {
   const stripe = useStripe();
@@ -14,6 +15,7 @@ const CheckOutForm = ({ classId, selectedClassId, price, userId }) => {
   const [clientSecret, setClientSecret] = useState('');
   const [processing, setProcessing] = useState(false);
   const [transactionId, setTransactionId] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (price > 0) {
@@ -89,6 +91,7 @@ const CheckOutForm = ({ classId, selectedClassId, price, userId }) => {
               showConfirmButton: false,
               timer: 1500
             })
+            navigate('/dashboard/enrolled-classes');
           }
         })
     }

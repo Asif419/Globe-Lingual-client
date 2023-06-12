@@ -1,4 +1,5 @@
 import useInstructorClasses from "../../../hooks/useInstructorClasses";
+import Caption from "../../Shared/Caption";
 import Loading from "../../Shared/Loading/Loading";
 import InstructorClass from "./InstructorClass";
 
@@ -10,7 +11,9 @@ const InstructorClasses = () => {
   }
 
   return (
-    <div className="overflow-x-auto w-full">
+    <div className="w-screen md:w-full">
+      <Caption heading='My Class List'></Caption>
+    <div className="overflow-x-auto w-full mt-5">
       <table className="table w-full">
         {/* head */}
         <thead className="text-center">
@@ -36,6 +39,7 @@ const InstructorClasses = () => {
           }
         </tbody>
       </table>
+    </div>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import home from '../../assets/icon/house.png';
+// import home from '../../assets/icon/house.png';
 import instructors from '../../assets/icon/instructor.png';
 import classes from '../../assets/icon/classes.png';
 // import students from '../../assets/icon/students.png';
@@ -59,12 +59,12 @@ const DashboardMenu = () => {
             </>
             :
             <>
-              <li><NavLink
+              {/* <li><NavLink
                 to='/dashboard/student-home'
                 className={({ isActive }) =>
                   isActive ? "text-blue-600 font-extrabold border-r-4 border-blue-600" : ""
                 }>
-                Student Home<img className="w-8 h-8" src={home} alt="gl" /></NavLink></li>
+                Student Home<img className="w-8 h-8" src={home} alt="gl" /></NavLink></li> */}
               <li><NavLink
                 to='/dashboard/enrolled-classes'
                 className={({ isActive }) =>

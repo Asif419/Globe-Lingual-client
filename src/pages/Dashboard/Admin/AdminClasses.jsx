@@ -3,6 +3,7 @@ import useAdminClasses from "../../../hooks/useAdminClasses";
 import AdminClass from "./AdminClass";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Loading from "../../Shared/Loading/Loading";
+import Caption from "../../Shared/Caption";
 
 const AdminClasses = () => {
   const [adminClasses, refetch, isAdminClassesLoading] = useAdminClasses();
@@ -28,7 +29,7 @@ const AdminClasses = () => {
           input: 'textarea',
           inputLabel: 'Review',
           confirmButtonText: `${status === 'approved' ? 'Approve' : 'Reject'}`,
-          inputPlaceholder: 'Type your class review here...',
+          inputPlaceholder: 'You can skip to write it if you want',
           inputAttributes: {
             'aria-label': 'Type your Message here'
           },
@@ -99,34 +100,37 @@ const AdminClasses = () => {
   }
 
   return (
-    <div className="overflow-x-auto w-full">
-      <table className="table w-full">
-        {/* head */}
-        <thead className="text-center">
-          <tr className="">
-            <th>#</th>
-            <th className="text-start">Class Name</th>
-            <th>Class Image</th>
-            <th>Price $</th>
-            <th>Max seat</th>
-            <th>Enrolled Students</th>
-            <th>Status</th>
-            <th>Actions</th>
-            <th>Send Review</th>
-          </tr>
-        </thead>
-        <tbody className="text-center">
-          {
-            adminClasses.map((c, index) => <AdminClass
-              key={c._id}
-              c={c}
-              index={index + 1}
-              handleChangeStatus={handleChangeStatus}
-              handleEditReview={handleEditReview}
-            ></AdminClass>)
-          }
-        </tbody>
-      </table>
+    <div className="w-screen md:w-full">
+      <Caption heading='Instructors'></Caption>
+      <div className="overflow-x-auto w-full mt-5">
+        <table className="table w-full">
+          {/* head */}
+          <thead className="text-center">
+            <tr className="">
+              <th>#</th>
+              <th className="text-start">Class Name</th>
+              <th>Class Image</th>
+              <th>Price $</th>
+              <th>Max seat</th>
+              <th>Enrolled Students</th>
+              <th>Status</th>
+              <th>Actions</th>
+              <th>Send Review</th>
+            </tr>
+          </thead>
+          <tbody className="text-center">
+            {
+              adminClasses.map((c, index) => <AdminClass
+                key={c._id}
+                c={c}
+                index={index + 1}
+                handleChangeStatus={handleChangeStatus}
+                handleEditReview={handleEditReview}
+              ></AdminClass>)
+            }
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
