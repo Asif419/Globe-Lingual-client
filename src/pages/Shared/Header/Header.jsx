@@ -69,8 +69,8 @@ const Header = () => {
           </div>
           <Link to='/'>
             <div className="flex justify-center items-center gap-2">
-              <img className="h-14 w-14" src={logo} alt="logo" />
-              <p className="text-2xl md:text-4xl font-extrabold tracking-tight brand-font">Globe Lingual</p>
+              <img className="h-16 w-16" src={logo} alt="logo" />
+              {/* <p className="text-2xl md:text-4xl font-extrabold tracking-tight brand-font">GL</p> */}
             </div>
           </Link>
         </div>

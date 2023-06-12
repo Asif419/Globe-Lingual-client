@@ -34,7 +34,7 @@ const Footer = () => {
       <footer className="footer py-4 px-4 md:px-8 lg:px-16 border-t bg-base-200 text-base-content border-base-300">
         <div className="items-center grid-flow-col justify-self-center lg:justify-self-start">
           <img className="h-10 w-10" src={logo} alt="logo" />
-          <p>GLOBE LINGUAL <br />Providing reliable Language training since 2023</p>
+          <p className='font-extrabold'>GLOBE LINGUAL <br />Providing reliable Language training since 2023</p>
         </div>
         <div className="md:place-self-center justify-self-center md:justify-self-end ">
           <div className="grid grid-flow-col gap-4">

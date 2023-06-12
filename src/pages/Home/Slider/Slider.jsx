@@ -25,7 +25,7 @@ const Slider = () => {
           <div className="hero min-h-[80vh]" style={{ backgroundImage: `url(${one})` }}>
             <div className="hero-overlay bg-opacity-80"></div>
             <div className="hero-content text-center text-neutral-content">
-              <div className="max-w-md">
+              <div data-aos="fade-up" className="max-w-md">
                 <h1 className="mb-5  text-3xl md:text-5xl font-bold">All Exciting Classes</h1>
                 <p className="mb-5 sm:text-xs md:text-base">Discover a world of language learning with Globe Lingual. Our courses offer a comprehensive and immersive experience, helping you master new languages effortlessly.</p>
                 <Link to='/classes'><button className="btn btn-primary">All Courses</button></Link>
