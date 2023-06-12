@@ -4,10 +4,10 @@ const Instructor = ({ instructor }) => {
   const { user_name, user_photo_url, user_email } = instructor;
   return (
     <motion.div
-      initial={{ scale: 0.5, opacity: 0 }}
+      initial={{ scale: 0, opacity: 0 }}
       whileHover={{ scale: 1.0, opacity: 1 }}
       whileInView={{ scale: 0.9, opacity: 8 }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: 0.7 }}
     >
       <div className="card bg-base-100 shadow-xl">
         <figure className="px-10 pt-10">

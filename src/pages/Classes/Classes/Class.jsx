@@ -4,6 +4,7 @@ import useUser from "../../../hooks/useUser";
 import { useLocation, useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { toast } from "react-hot-toast";
+import { motion } from 'framer-motion';
 
 
 const Class = ({ c }) => {
@@ -47,30 +48,37 @@ const Class = ({ c }) => {
           notify(`Sorry, Something went wrong 😟`);
         }
       })
-      .catch(() => {
-        notify(`Sorry, Something went wrong 😟`);
-      })
+        .catch(() => {
+          notify(`Sorry, Something went wrong 😟`);
+        })
     }
   }
 
 
   return (
-    <div className={`card card-side shadow-xl ${total_seats <= enrolled_students ? 'bg-red-100' : 'bg-base-100'}`}>
+    <motion.div
+      initial={{ scale: 0, opacity: 0 }}
+      whileHover={{ scale: 1.0, opacity: 1 }}
+      whileInView={{ scale: 0.9, opacity: 8 }}
+      transition={{ duration: 0.7 }}
+    >
+      <div className={`card card-side shadow-xl ${total_seats <= enrolled_students ? 'bg-red-100' : 'bg-base-100'}`}>
 
-      <figure style={{ maxWidth: '25%' }}><img src={class_photo_url} alt={class_name} style={{ height: '100%', objectFit: 'cover' }} /></figure>
+        <figure style={{ maxWidth: '35%' }}><img src={class_photo_url} alt={class_name} style={{ height: '100%', objectFit: 'cover' }} /></figure>
 
-      <div className="card-body">
-        <div className="card-title flex items-center justify-between">
-          <h2>{class_name}</h2>
-          <h2>${class_price}</h2>
+        <div className="card-body">
+          <div className="card-title flex items-center justify-between">
+            <h2>{class_name}</h2>
+            <h2>${class_price}</h2>
+          </div>
+          <p>{instructor_name}</p>
+          <p>Available seats <span className="text-xl font-extrabold">{total_seats - enrolled_students}</span> <br /> among <span className="font-extrabold">{total_seats}</span></p>
+          <div className="card-actions justify-end">
+            <button disabled={role === 'admin' || role === 'instructor' || total_seats <= enrolled_students} onClick={handleSelect} className="btn btn-sm btn-primary">Select</button>
+          </div>
         </div>
-        <p>{instructor_name}</p>
-        <p>Available seats <span className="text-xl font-extrabold">{total_seats - enrolled_students}</span> <br /> among <span className="font-extrabold">{total_seats}</span></p>
-        <div className="card-actions justify-end">
-          <button disabled={role === 'admin' || role === 'instructor' || total_seats <= enrolled_students} onClick={handleSelect} className="btn btn-sm btn-primary">Select</button>
-        </div>
-      </div>
-    </div >
+      </div >
+    </motion.div>
   );
 };
 
