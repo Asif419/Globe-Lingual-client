@@ -209,7 +209,7 @@ const Registration = () => {
                 </div>
               )
             }
-            <button onClick={() => setErrorMessage(null)} className="btn-gl" type="submit">Submit</button>
+            <button onClick={() => setErrorMessage(null)} className="btn-gl" type="submit">Registration</button>
           </form>
           <div className="divider">OR</div>
           <div className="flex flex-col items-center">

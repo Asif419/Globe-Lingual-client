@@ -103,7 +103,7 @@ const Login = () => {
                 </div>
               )
             }
-            <button className="btn-gl" type="submit">Submit</button>
+            <button className="btn-gl" type="submit">Login</button>
           </form>
           <div className="divider">OR</div>
           <div className="flex flex-col items-center">
